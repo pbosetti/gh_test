@@ -23,9 +23,5 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_PASS }}
-  build:
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
       - name: Build the Docker image
-        run: docker buildx build . --platform linux/amd64,linux/arm64 --file Dockerfile --tag ${{ secrets.DOCKER_USER }}/gh_test:$(date +%s) --push
+        run: docker buildx build . --file Dockerfile --tag ${{ secrets.DOCKER_USER }}/gh_test:$(date +%s) --push
