@@ -24,4 +24,4 @@ jobs:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_PASS }}
       - name: Build the Docker image
-        run: docker buildx build . --file Dockerfile --tag ${{ secrets.DOCKER_USER }}/gh_test:$(date +%s) --push
+        run: docker buildx build . --file Dockerfile --tag ${{ secrets.DOCKER_USER }}/gh_test:$(date +%s) --tag ${{ secrets.DOCKER_USER }}/gh_test:latest --push
